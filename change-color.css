@@ -1,0 +1,23 @@
+
+.change{
+    width: auto;
+    text-align: left;
+    margin-bottom: 15px;
+}
+.change .b2{
+   border-top-right-radius: 15px;
+   border-bottom-right-radius: 15px;
+   border-left: none;
+   position: absolute;
+   left:37px;
+   
+
+}
+
+.change .b{
+   border-top-left-radius: 15px;
+   border-bottom-left-radius: 15px;
+   border-right: none;
+   opacity: 5px;
+ 
+}

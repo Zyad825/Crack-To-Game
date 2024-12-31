@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f0f1c; 
+}
+
+/* تصميم الشريط */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #1c1c3c;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* تصميم الشعار */
+.logo {
+    font-size: 24px;
+    color: #ff4f81;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.logo span {
+    margin-left: 10px;
+}
+
+/* تصميم روابط التنقل */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* تأثير على الروابط عند التمرير */
+.nav-links li a:hover {
+    color: #ff4f81;
+}
+
+.nav-links li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 3px;
+    background-color: #ff4f81;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* تصميم زر القائمة للأجهزة الصغيرة */
+.menu-icon {
+    font-size: 26px;
+    color: #fff;
+    display: none;
+    cursor: pointer;
+}
+
+/* إخفاء القائمة الافتراضية عند استخدام الأجهزة الصغيرة */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: #1c1c3c;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s ease;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+/*up screan*/
+
+#color{
+    max-width: 200px;
+    width: 120px;
+    height: 23px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    
+
+}
+
+
+/*down screan*/
+.controls-page{
+    width: 100%;
+    margin-top: 15px;
+    
+}
+.left{
+    width: 50px;
+    height: 50px;
+    outline: none;
+    box-shadow: 1px 1px 1px 1px silver;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    background-color: silver;
+    background-image: url(icons/left1.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    
+}
+.left:hover{
+    background-image: url(icons/left2.png);
+    transform: scale(1.05);
+
+}
+
+/*all games*/
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.card {
+    min-width: 200px;
+    margin: 0 10px;
+    background-color: silver;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    scroll-snap-align: start;
+    transition: transform 0.3s;
+    
+}
+/*transition: transform 0.3s;*/
+/*transform: scale(1.05);*/
+.card:hover{
+    transform: scale(1.05); 
+}
+.card img {
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.card p {
+    padding: 0 10px;
+    color: #666;
+}
+.b1{
+    position: relative;
+    width: 120px;
+    height: 30px;
+    background:rgb(11, 188, 11);
+    color: white;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    border-radius: 50px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    
+}
+.b1:hover{
+    background:linear-gradient(50deg, skyblue,orange,red,orange,skyblue);
+    background-size: 500%;
+    animation: glow 8s linear infinite;
+}
+.b1::before{
+    content: "";
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    right: -5px;
+    left: -5px;
+    background:linear-gradient(50deg, skyblue,orange,red);
+    filter: blur(20px);
+    opacity: 0;
+    transition: 0.5s ease;
+}
+.b1:hover::before{
+    opacity: 1;
+    z-index: -1;
+
+}
+@keyframes glow{
+    from{
+        background-position: 0%;
+    }
+    to{
+        background-position: 500%;
+    }
+}
+
+.container {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background-color: silver;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+}
+
+.game-card img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.game-card h3 {
+    margin: 10px 0;
+}
+
+.game-card p {
+    color: #666;
+}
+/*search*/
+
+.search-box{
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid gray;
+    box-shadow: 2px 2px 2px 2px rgb(206, 200, 200);
+    border-radius: 7px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.search-box input{
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: none;
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+}
+.search-box .i{
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.search-box .i:hover{
+    margin-left: 10px;
+    cursor: pointer;
+    transform: scale(1.2); 
+}
